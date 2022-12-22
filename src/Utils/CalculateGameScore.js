@@ -4,10 +4,12 @@ import {
   isAnyPlayerScoresGreaterThanZero,
   isPlayersScoresNotEqual,
   isPlayersScoresEqual,
+  isPlayersScoresLessThanThree,
+  isPlayersScoresGreaterThanAndEqualToThree,
 } from "../Validators/scoreValidator";
 import { scoreLookUp } from "./ScoreLookUp";
 
-const { LOVE_All } = applicationConstants;
+const { LOVE_All, DEUCE } = applicationConstants;
 
 const getGameScore = (playerOneScore, playerTwoScore) => {
   if (
@@ -17,8 +19,17 @@ const getGameScore = (playerOneScore, playerTwoScore) => {
     return `${scoreLookUp[playerOneScore]}-${scoreLookUp[playerTwoScore]}`;
   }
 
-  if (isPlayersScoresEqual(playerOneScore, playerTwoScore)) {
+  if (
+    isPlayersScoresLessThanThree(playerOneScore, playerTwoScore) &&
+    isPlayersScoresEqual(playerOneScore, playerTwoScore)
+  ) {
     return `${scoreLookUp[playerOneScore]}-All`;
+  }
+
+  if (
+    isPlayersScoresGreaterThanAndEqualToThree(playerOneScore, playerTwoScore)
+  ) {
+    return DEUCE;
   }
 };
 

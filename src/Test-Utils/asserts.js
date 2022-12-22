@@ -1,7 +1,7 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { testConstants } from "../constants/TestConstants";
 
-const { GAME_SCORE } = testConstants;
+const { GAME_SCORE, THREE, PLAYER_ONE, PLAYER_TWO } = testConstants;
 
 const givenPlayerone = {
   scores,
@@ -15,8 +15,13 @@ function scores(times, player) {
   }
 }
 
+function givenDeuce() {
+  givenPlayerone.scores(THREE, PLAYER_ONE);
+  givenPlayerTwo.scores(THREE, PLAYER_TWO);
+}
+
 const gameScoreShouldBe = (expected) => {
   expect(screen.getByTestId(GAME_SCORE).textContent).toEqual(expected);
 };
 
-export { givenPlayerone, givenPlayerTwo, gameScoreShouldBe };
+export { givenPlayerone, givenPlayerTwo, gameScoreShouldBe, givenDeuce };

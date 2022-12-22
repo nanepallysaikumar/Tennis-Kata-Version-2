@@ -4,6 +4,7 @@ import {
   givenPlayerone,
   givenPlayerTwo,
   gameScoreShouldBe,
+  givenDeuce,
 } from "./Test-Utils/asserts";
 import App from "./App";
 
@@ -20,6 +21,7 @@ const {
   LOVE_FIFTEEN,
   LOVE_THIRTY,
   FIFTEEN_ALL,
+  DEUCE,
 } = testConstants;
 
 beforeEach(() => {
@@ -65,4 +67,10 @@ test(`When the running point of player one is 1 and the running point of player 
   givenPlayerTwo.scores(ONE, PLAYER_TWO);
 
   gameScoreShouldBe(FIFTEEN_ALL);
+});
+
+test(`When the individual points of both the players is greater than or equal to 3 and the running point of player one and player two are equal then the running score should be “Deuce”`, () => {
+  givenDeuce();
+
+  gameScoreShouldBe(DEUCE);
 });

@@ -10,6 +10,7 @@ const applicationConstants = {
   LOVE_THIRTY: "Love-Thirty",
   VALUE_ONE: 1,
   VALUE_TWO: 2,
+  DEUCE: "Deuce",
 };
 
 export { applicationConstants };

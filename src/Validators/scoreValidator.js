@@ -14,9 +14,19 @@ const isPlayersScoresNotEqual = (playerOneScore, playerTwoScore) =>
 const isPlayersScoresEqual = (playerOneScore, playerTwoScore) =>
   playerOneScore === playerTwoScore;
 
+const isPlayersScoresLessThanThree = (playerOneScore, playerTwoScore) =>
+  playerOneScore < 3 && playerTwoScore < 3;
+
+const isPlayersScoresGreaterThanAndEqualToThree = (
+  playerOneScore,
+  playerTwoScore
+) => playerOneScore >= 3 && playerTwoScore >= 3;
+
 export {
   isPlayersScoreEqualsToZero,
   isAnyPlayerScoresGreaterThanZero,
   isPlayersScoresNotEqual,
   isPlayersScoresEqual,
+  isPlayersScoresLessThanThree,
+  isPlayersScoresGreaterThanAndEqualToThree,
 };
