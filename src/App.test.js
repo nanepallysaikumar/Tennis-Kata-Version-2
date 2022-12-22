@@ -3,7 +3,8 @@ import { testConstants } from "./Constants/TestConstants";
 import { givenPlayerone, gameScoreShouldBe } from "./Test-Utils/asserts";
 import App from "./App";
 
-const { LOVE_ALL, PLAYER_ONE, FIFTEEN_LOVE, ONE } = testConstants;
+const { LOVE_ALL, PLAYER_ONE, FIFTEEN_LOVE, ONE, TWO, THIRTY_LOVE } =
+  testConstants;
 
 beforeEach(() => {
   render(<App />);
@@ -17,4 +18,10 @@ test(`When the running point of player one is 1 and the running point of player 
   givenPlayerone.scores(ONE, PLAYER_ONE);
 
   gameScoreShouldBe(FIFTEEN_LOVE);
+});
+
+test(`When the running point of player one is 2 and the running point of player two is 0 then the running score should be "Thirty - Love".`, () => {
+  givenPlayerone.scores(TWO, PLAYER_ONE);
+
+  gameScoreShouldBe(THIRTY_LOVE);
 });
