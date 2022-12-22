@@ -10,10 +10,6 @@ import { scoreLookUp } from "./ScoreLookUp";
 const { LOVE_All } = applicationConstants;
 
 const getGameScore = (playerOneScore, playerTwoScore) => {
-  if (isPlayersScoreEqualsToZero(playerOneScore, playerTwoScore)) {
-    return LOVE_All;
-  }
-
   if (
     isPlayersScoresNotEqual(playerOneScore, playerTwoScore) &&
     isAnyPlayerScoresGreaterThanZero(playerOneScore, playerTwoScore)
