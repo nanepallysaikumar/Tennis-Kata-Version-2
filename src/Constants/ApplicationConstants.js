@@ -7,6 +7,7 @@ const applicationConstants = {
   FIFTEEN_LOVE: "Fifteen-Love",
   THIRTY_LOVE: "Thirty-Love",
   LOVE_FIFTEEN: "Love-Fifteen",
+  LOVE_THIRTY: "Love-Thirty",
   VALUE_ONE: 1,
   VALUE_TWO: 2,
 };
