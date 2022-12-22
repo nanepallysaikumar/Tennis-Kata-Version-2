@@ -8,4 +8,15 @@ const isPlayersScoreEqualsToZero = (playerOneScore, playerTwoScore) =>
 const isAnyPlayerScoresGreaterThanZero = (playerOneScore, playerTwoScore) =>
   playerOneScore > VALUE_ZERO || playerTwoScore > VALUE_ZERO;
 
-export { isPlayersScoreEqualsToZero, isAnyPlayerScoresGreaterThanZero };
+const isPlayersScoresNotEqual = (playerOneScore, playerTwoScore) =>
+  playerOneScore !== playerTwoScore;
+
+const isPlayersScoresEqual = (playerOneScore, playerTwoScore) =>
+  playerOneScore === playerTwoScore;
+
+export {
+  isPlayersScoreEqualsToZero,
+  isAnyPlayerScoresGreaterThanZero,
+  isPlayersScoresNotEqual,
+  isPlayersScoresEqual,
+};

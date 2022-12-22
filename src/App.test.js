@@ -1,6 +1,10 @@
 import { render } from "@testing-library/react";
 import { testConstants } from "./Constants/TestConstants";
-import { givenPlayerone, gameScoreShouldBe } from "./Test-Utils/asserts";
+import {
+  givenPlayerone,
+  givenPlayerTwo,
+  gameScoreShouldBe,
+} from "./Test-Utils/asserts";
 import App from "./App";
 
 const {
@@ -15,6 +19,7 @@ const {
   FORTY_LOVE,
   LOVE_FIFTEEN,
   LOVE_THIRTY,
+  FIFTEEN_ALL,
 } = testConstants;
 
 beforeEach(() => {
@@ -53,4 +58,11 @@ test(`When the running point of player one is 0 and the running point of player 
   givenPlayerone.scores(TWO, PLAYER_TWO);
 
   gameScoreShouldBe(LOVE_THIRTY);
+});
+
+test(`When the running point of player one is 1 and the running point of player two is 1 then the running score should be "Fifteen-All".`, () => {
+  givenPlayerone.scores(ONE, PLAYER_ONE);
+  givenPlayerTwo.scores(ONE, PLAYER_TWO);
+
+  gameScoreShouldBe(FIFTEEN_ALL);
 });
