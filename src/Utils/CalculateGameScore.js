@@ -9,7 +9,7 @@ const getGameScore = (playerOneScore, playerTwoScore) => {
     return LOVE_All;
   }
 
-  if (playerOneScore === VALUE_ONE || playerOneScore === VALUE_TWO) {
+  if (playerOneScore > 0) {
     return `${scoreLookUp[playerOneScore]}-Love`;
   }
 };
