@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { applicationConstants } from "../Constants/applicationConstants";
 import { getGameScore } from "../Utils/CalculateGameScore";
 
-const { GAME_SCORE, PLAYER_ONE, VALUE_ONE } = applicationConstants;
+const { GAME_SCORE, PLAYER_ONE, VALUE_ONE, PLAYER_TWO } = applicationConstants;
 
 function Game() {
   const [gameScore, setGameScore] = useState();
-  const [playerOneScore, setPlayerScore] = useState(0);
-  const [playerTwoScore] = useState(0);
+  const [playerOneScore, setPlayerOneScore] = useState(0);
+  const [playerTwoScore, setPlayerTwoScore] = useState(0);
 
   useEffect(() => {
     const score = getGameScore(playerOneScore, playerTwoScore);
@@ -15,13 +15,20 @@ function Game() {
   }, [playerOneScore, playerTwoScore]);
 
   const playerOneScores = () => {
-    setPlayerScore(playerOneScore + VALUE_ONE);
+    setPlayerOneScore(playerOneScore + VALUE_ONE);
+  };
+
+  const playerTwoScores = () => {
+    setPlayerTwoScore(playerTwoScore + VALUE_ONE);
   };
 
   return (
     <div>
       <p data-testid={GAME_SCORE}>{gameScore}</p>
       <button data-testid={PLAYER_ONE} onClick={playerOneScores}>
+        Player One Scores:
+      </button>
+      <button data-testid={PLAYER_TWO} onClick={playerTwoScores}>
         Player One Scores:
       </button>
     </div>

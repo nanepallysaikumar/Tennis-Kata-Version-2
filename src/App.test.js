@@ -6,12 +6,14 @@ import App from "./App";
 const {
   LOVE_ALL,
   PLAYER_ONE,
+  PLAYER_TWO,
   FIFTEEN_LOVE,
   ONE,
   TWO,
   THREE,
   THIRTY_LOVE,
   FORTY_LOVE,
+  LOVE_FIFTEEN,
 } = testConstants;
 
 beforeEach(() => {
@@ -38,4 +40,10 @@ test(`When the running point of player one is 3 and the running point of player 
   givenPlayerone.scores(THREE, PLAYER_ONE);
 
   gameScoreShouldBe(FORTY_LOVE);
+});
+
+test(`When the running point of player one is 0 and the running point of player two is 1 then the running score should be "Love-Fifteen".`, () => {
+  givenPlayerone.scores(ONE, PLAYER_TWO);
+
+  gameScoreShouldBe(LOVE_FIFTEEN);
 });
