@@ -24,6 +24,7 @@ const {
   DEUCE,
   ADVANTAGE_PLAYER_ONE,
   ADVANTAGE_PLAYER_TWO,
+  WIN_PLAYER_ONE,
 } = testConstants;
 
 beforeEach(() => {
@@ -89,4 +90,11 @@ test(`When the individual points of both the players is greater than equal to 4 
   givenPlayerTwo.scores(ONE, PLAYER_TWO);
 
   gameScoreShouldBe(ADVANTAGE_PLAYER_TWO);
+});
+
+test(`When the individual points of both the players are greater than equal to 4 and the Absolute difference between running point of player 1 and player 2 is equal to 2 then the game should be declared Win for “Player One” if the running point of player 1 is greater than running point of player2.`, () => {
+  givenDeuce();
+  givenPlayerone.scores(TWO, PLAYER_ONE);
+
+  gameScoreShouldBe(WIN_PLAYER_ONE);
 });
