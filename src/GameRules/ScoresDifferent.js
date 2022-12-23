@@ -1,8 +1,12 @@
 import { scoreLookUp } from "../Utils/ScorelookUp";
-import { isPlayersScoresNotEqual } from "../Validators/scoreValidator";
+import {
+  isPlayersScoresNotEqual,
+  isPlayersScoresLessThanAndEqualToThree,
+} from "../Validators/scoreValidator";
 
 const validateCriteria = (playerOneScore, playerTwoScore) =>
-  isPlayersScoresNotEqual(playerOneScore, playerTwoScore);
+  isPlayersScoresNotEqual(playerOneScore, playerTwoScore) &&
+  isPlayersScoresLessThanAndEqualToThree(playerOneScore, playerTwoScore);
 
 const getScoreDescription = (playerOneScore, playerTwoScore) =>
   `${scoreLookUp[playerOneScore]}-${scoreLookUp[playerTwoScore]}`;

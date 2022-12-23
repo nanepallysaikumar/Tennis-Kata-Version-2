@@ -22,6 +22,7 @@ const {
   LOVE_THIRTY,
   FIFTEEN_ALL,
   DEUCE,
+  ADVANTAGE_PLAYER_ONE,
 } = testConstants;
 
 beforeEach(() => {
@@ -73,4 +74,11 @@ test(`When the individual points of both the players is greater than or equal to
   givenDeuce();
 
   gameScoreShouldBe(DEUCE);
+});
+
+test(`When the individual points of both the players is greater than equal to 4 and the Absolute difference between running point of player 1 and player 2 is equal to 1 then the running score should be “Advantage Player1” if the running point of player 1 is greater than running point of player2.`, () => {
+  givenDeuce();
+  givenPlayerone.scores(ONE, PLAYER_ONE);
+
+  gameScoreShouldBe(ADVANTAGE_PLAYER_ONE);
 });

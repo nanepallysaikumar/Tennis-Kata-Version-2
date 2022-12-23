@@ -13,6 +13,7 @@ const testConstants = {
   TWO: 2,
   THREE: 3,
   DEUCE: "Deuce",
+  ADVANTAGE_PLAYER_ONE: "Advantage Player One",
 };
 
 export { testConstants };
